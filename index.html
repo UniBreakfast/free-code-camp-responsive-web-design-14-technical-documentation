@@ -303,11 +303,15 @@
           <code>/* partial inline comment */</code>
         </li>
 
+        <br>
+
         <li>
           <code>
             <pre>/*<br>  multiline<br>  comment<br>*/</pre>
           </code>
         </li>
+
+        <br>
 
         <li>
           <code>
@@ -428,38 +432,81 @@
         </code>
       </div>
       
-      <p>Classic Function literals: * **</p>
+      <p>Classic function literals: * **</p>
       
       <div class="code-block">
         <code>
-          <pre>function fn() {}<br>function fn(a, b) {}<br>function (a) {}<br>function C(a, b) {}<br>function* g() {}<br>async function f() {}</pre>
+          <pre>function fn() {}<br>function fn(a, b) {}<br>function (a) {}<br>function Constructor(a, b) {}<br>function* generate() {}<br>async function doEventually() {}</pre>
         </code>
       </div>
-      function f() {}; function f(a, b) {}  // classic function literal
-(
-function () {}, function (a, b) {}  // anonymous classic function literal
-)
-a => b; () => {}; (a, b) => {}; () => c  // arrow function literal
-[a, b, c];  // array literal
-(
-{a: b, c: d}  // object literal
-);
-{a, b} // shorthand object literal (values provided by bindings with same names)
-(
-{m() {}}  // object literal with method definition (shorthand)
-)  
-function C() {}; function C(a, b) {}  // function constructor literal
-class C {}; class C extends B {}  // class literal
-class C {constructor() {}; m() {}; static s() {}; get g() {}; set t(v) {}; p = a }  // class literal with 
-// ... optional constructor,methods, static methods, getters, setters and property initializers
-async function f() {}; async () => {}  // async function literals (classic and arrow)
-(
-{async m() {}}, class C {async m() {}; static async s() {}}  // object/class literals with async method definitions
-)(
-function* g() {}, function* () {}  // generator function literals
-)(
-{*m() {}}, class C {*m() {}; static *s() {}}  // object/class literals with generator method definitions
-)
+
+      <p class="note">
+        * to be considered a function literal and not a function declaration statement, it should be in an expression context, not just at the beginning of a separate line.
+      </p>
+
+      <p class="note">
+        ** any classic function literal can be named or anonymous, with or without parameters, with or without async keyword, with or without asterisk making it a generator - any combination of these can be used.
+      </p>
+
+      <p>Arrow function literals: *</p>
+
+      <div class="code-block">
+        <code>
+          <pre>a => b<br>() => {}<br>(a, b) => {}<br>async () => {}</pre>
+        </code>
+      </div>
+
+      <p class="note">
+        * in arrow function parentheses can be omitted if there is exactly one parameter, curly braces can be omitted if there is exactly one expression in the function body, and if curly braces are omitted the return value of that single expression is returned from the function.
+      </p>
+      
+      <p>Array literals:</p>
+
+      <div class="code-block">
+        <code>
+          <pre>[a]<br>[a, b, c, d, e]</pre>
+        </code>
+      </div>
+
+      <p>Object literals: * ** ***</p>
+
+      <div class="code-block">
+        <code>
+          <pre>{a: b, c: d}<br>{a, b}<br>{m(a) {}}<br>{async m() {}}<br>{*m() {}}<br>{get g() {}, set s(v) {}}</pre>
+        </code>
+      </div>
+
+      <p class="note">
+        * a property in an object literal can be written in shorthand form (without colon) if it has the same name as an existing binding in the same scope which will provide the value for that property.
+      </p>
+
+      <p class="note">
+        ** a method in an object literal can be written in shorthand form (without colon and function keyword), and it can be with or without parameters, with or without async keyword, with or without asterisk making it a generator in any combination of these; it will function as a function created with the function keyword.
+      </p>
+
+      <p class="note">
+        *** an object literal can be written with or without getters and/or setters.
+      </p>
+
+      <p>Class literals: * ** ***</p>
+
+      <div class="code-block">
+        <code>
+          <pre>class C {}<br>class {}<br>class C extends B {}<br>  <br>class C {<br>  p = a<br>  #pp = b<br>  constructor(a, b) {}<br>  m(a) {}<br>  static s(o) {}<br>  get g() {}<br>  set t(v) {}<br>}<br>  <br>class C {async m() {}; static async s() {}}<br>class C {*m() {}; static *s() {}}</pre>
+        </code>
+      </div>
+
+      <p class="note">
+        * to be considered a class literal and not a class declaration statement, it should be in an expression context, not just at the beginning of a separate line.
+      </p>
+
+      <p class="note">
+        ** class literal can be named or anonymous, written with or without extends clause, with or without constructor, with or without static or prototype methods, with or without getters and/or setters, and with or without own property initializers.
+      </p>
+
+      <p class="note">
+        *** any method in a class literal can be written with or without parameters, with or without async keyword, with or without asterisk making it a generator in any combination of these; it will function as a function created with the function keyword; constructor can be written with or without parameters, but can't be a generator or async function; own property initializers can be private or public (with or without a hash sign).
+      </p>
     </section>
 
     <section id="operator_expressions" class="main-section">

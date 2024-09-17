@@ -46,14 +46,16 @@ main {
     text-transform: uppercase;
     padding-right: 20%;
     text-align: center;
+    padding-top: 60px;
+    margin-top: 0;
 
-    section:first-child & {
-      padding-top: 40px;
-      margin-top: 0;
+    section:nth-child(n+2) & {
+      margin-top: -30px;
     }
   }
 
   h3 {
+    margin-top: 40px;
     text-transform: uppercase;
     padding-left: 20%;
   }
@@ -87,6 +89,8 @@ main {
   .note {
     font-size: 0.8em;
   }
+
+
 }
 
 @media (max-width: 768px) {
