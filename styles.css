@@ -59,6 +59,7 @@ main {
   }
 
   .code-block {
+    max-width: 560px;
     background-color: #f1f1f1;
     padding: 20px;
     border-radius: 20px;
@@ -69,11 +70,16 @@ main {
     font-size: 1.2em;
   }
 
+  pre {
+    margin: 0;
+  }
+
   .legend>li::marker {
     color: lightgray;
   }
 
   .columns {
+    max-width: 900px;
     list-style: none;
     column-width: 8em;
   }

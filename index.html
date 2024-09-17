@@ -297,6 +297,8 @@
           <code>// comment to the end of the line</code>
         </li>
 
+        <br>
+
         <li>
           <code>/* partial inline comment */</code>
         </li>
@@ -324,7 +326,89 @@
         <h2>Simple Expressions</h2>
       </header>
 
+      <p>Simple expressions are the singular tokens that can be evaluated on their own and so make the simplest expressions. Simple expressions can be used as the operands of operators, as the arguments of function calls, and so on.</p>
+
+      <p>Literal expression is basically a command to the computer to produce a value (create in memory and return it or the corresponding memory address to get the value).</p>
       
+      <p>Number literals:</p>
+      
+      <div class="code-block">
+        <code>
+          <pre>42<br>3.14<br>12e9<br>2e-5<br>1_000_000<br>0b10<br>0o777<br>0xFF<br>NaN<br>Infinity</pre>
+        </code>
+      </div>
+
+      <p>BigInt literals:</p>
+
+      <div class="code-block">
+        <code>
+          <pre>1234567890n<br>-14n<br>99999999999999999999999999999999n</pre>
+        </code>
+      </div>
+      
+      <p>String literals:</p>
+
+      <div class="code-block">
+        <code>
+          <pre>'Hi!'<br>"Hello World"<br>'O\'Reilly'<br>"He said, \"Hello!\""<br>`no interpolation`</pre>
+        </code>
+      </div>
+
+      <p>Boolean literals:</p>
+
+      <div class="code-block">
+        <code>
+          <pre>true<br>false</pre>
+        </code>
+      </div>
+
+      <p>Null and undefined literals:</p>
+
+      <div class="code-block">
+        <code>
+          <pre>null<br>undefined</pre>
+        </code>
+      </div>
+      
+      <p>Empty array and object literals:</p>
+
+      <div class="code-block">
+        <code>
+          <pre>[]<br>{}</pre>
+        </code>
+      </div>
+
+      <p>Regular expression (regex) literals: *</p>
+
+      <div class="code-block">
+        <code>
+          <pre>/.*/<br>/^(ab+|c*)\d?[ef]$/gi</pre>
+        </code>
+      </div>
+      
+      <p class="note">
+        * regex literal is a single token as far as the JavaScript engine is concerned. But on a deeper level of regular expressions as a meta-language, it is a sequence of regex-tokens.
+      </p>
+      
+      <p>Single identifiers are "read binding value" commands. Here are some example constant, variable, parameter, function or class names:</p>
+
+      <div class="code-block">
+        <code>
+          <pre>x0<br>parseInt<br>Object<br>console<br>myCustomVariable<br>doSomething<br>param1</pre>
+        </code>
+      </div>
+
+      <p>standalone keyword bindings are simialar to identifiers: *</p>
+
+      <div class="code-block">
+        <code>
+          <pre>this<br>arguments</pre>
+        </code>
+      </div>
+
+      <p class="note">
+        * <code>NaN</code>, <code>Infinity</code>, <code>true</code>, <code>false</code>, <code>undefined</code> and <code>null</code> can also be put in this category.
+      </p>
     </section>
 
     <section id="compound_literal_expressions" class="main-section">
@@ -332,6 +416,50 @@
         <h2>Compound Literal Expressions</h2>
       </header>
 
+      <p>
+        Compound literals are literal expressions that consist of more than one token. They are still used to create values of various types, positioned as operands of operators or arguments of function calls.
+      </p>
+
+      <p>Template string literals:</p>
+
+      <div class="code-block">
+        <code>
+          <pre>`With interpolated a=${a} and b=${b}`<br>`include calculated values ${a + b}, ${mult(a, b)}`</pre>
+        </code>
+      </div>
+      
+      <p>Classic Function literals: * **</p>
+      
+      <div class="code-block">
+        <code>
+          <pre>function fn() {}<br>function fn(a, b) {}<br>function (a) {}<br>function C(a, b) {}<br>function* g() {}<br>async function f() {}</pre>
+        </code>
+      </div>
+      function f() {}; function f(a, b) {}  // classic function literal
+(
+function () {}, function (a, b) {}  // anonymous classic function literal
+)
+a => b; () => {}; (a, b) => {}; () => c  // arrow function literal
+[a, b, c];  // array literal
+(
+{a: b, c: d}  // object literal
+);
+{a, b} // shorthand object literal (values provided by bindings with same names)
+(
+{m() {}}  // object literal with method definition (shorthand)
+)  
+function C() {}; function C(a, b) {}  // function constructor literal
+class C {}; class C extends B {}  // class literal
+class C {constructor() {}; m() {}; static s() {}; get g() {}; set t(v) {}; p = a }  // class literal with 
+// ... optional constructor,methods, static methods, getters, setters and property initializers
+async function f() {}; async () => {}  // async function literals (classic and arrow)
+(
+{async m() {}}, class C {async m() {}; static async s() {}}  // object/class literals with async method definitions
+)(
+function* g() {}, function* () {}  // generator function literals
+)(
+{*m() {}}, class C {*m() {}; static *s() {}}  // object/class literals with generator method definitions
+)
     </section>
 
     <section id="operator_expressions" class="main-section">
