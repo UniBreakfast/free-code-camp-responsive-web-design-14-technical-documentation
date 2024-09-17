@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>JS Tokens, Expressions, Statements</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <aside>
+    <nav id="navbar">
+      <header>
+        <h1>JavaScript<br>Tokens<br>Expressions<br>Statements</h1>
+      </header>
+
+      <ul>
+        <li>
+          <a class="nav-link" href="#tokens">Tokens</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#simple_expressions">Simple Expressions</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#compound_literal_expressions">Compound<br>Literal Expressions</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#operator_expressions">Operator Expressions</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#nested_expressions">Nested Expressions</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#statements">Statements</a>
+        </li>
+      </ul>
+    </nav>
+
+    <h3>DISCLAIMER</h3>
+
+    <p class="disclaimer">
+      All this categorization is a bit subjective
+      and is not to be taken as a definitive list
+      of all the tokens in JavaScript.<br>
+      Literature and highligters can use
+      less or more detailed categorizations.<br>
+      Some tokens may be put in more than one category.<br>
+      Expressions and statements can be named in different ways.<br>
+    </p>
+  </aside>
+
+  <main id="main-doc">
+    <section id="tokens" class="main-section">
+      <header>
+        <h2>Tokens</h2>
+      </header>
+
+      <p>Tokens are the smallest building blocks of a programming language. Atomic units of code, like words and punctuation marks in human languages. You can further break them into letters, digits and other characters, of course, code is just text after all. But they will loose their meaning then, so the smallest meaningful units we consider are tokens.</p>
+
+      <p>Easy to remember mnemonic (memorization trick) for the six categories of tokens I suggest is below:</p>
+
+      <div class="code-block">
+        <code>const m = 'Nemo'; // nick</code>
+      </div>
+
+      <ul class="legend">
+        <li><code>const</code> &nbsp; - keyword</li>
+        <li><code>m</code> &nbsp; &nbsp; &nbsp; - identifier</li>
+        <li><code>=</code> &nbsp; &nbsp; &nbsp; - operator</li>
+        <li><code>'Nemo'</code> &nbsp; - literal</li>
+        <li><code>;</code> &nbsp; &nbsp; &nbsp; - punctuator</li>
+        <li><code>// nick</code> &nbsp; - comment</li>
+      </ul>
+
+      <h3>keywords</h3>
+
+      <ul class="columns">
+        <li><code>var</code></li>
+        <li><code>let</code></li>
+        <li><code>const</code></li>
+        <li><code>function</code></li>
+        <li><code>return</code></li>
+        <li><code>class</code></li>
+        <li><code>static</code></li>
+        <li><code>if</code> &nbsp;*</li>
+        <li><code>else</code></li>
+        <li><code>do</code></li>
+        <li><code>while</code></li>
+        <li><code>for</code></li>
+        <li><code>of</code></li>
+        <li><code>in</code> &nbsp;**</li>
+        <li><code>break</code></li>
+        <li><code>continue</code></li>
+        <li><code>yield</code> &nbsp;**</li>
+        <li><code>switch</code></li>
+        <li><code>case</code></li>
+        <li><code>default</code></li>
+        <li><code>throw</code></li>
+        <li><code>try</code></li>
+        <li><code>catch</code> &nbsp;***</li>
+        <li><code>finally</code> &nbsp;***</li>
+        <li><code>new</code> &nbsp;**</li>
+        <li><code>delete</code> &nbsp;***</li>
+        <li><code>typeof</code> &nbsp;**</li>
+        <li><code>instanceof</code> &nbsp;**</li>
+        <li><code>get</code> &nbsp;***</li>
+        <li><code>set</code> &nbsp;***</li>
+        <li><code>async</code></li>
+        <li><code>await</code> &nbsp;**</li>
+        <li><code>import</code></li>
+        <li><code>export</code></li>
+        <li><code>debugger</code></li>
+        <li><code>void</code></li>
+        <li><code>with</code></li>
+        <li><code>this</code> &nbsp;***</li>
+        <li><code>constructor</code> &nbsp;***</li>
+        <li><code>super</code> &nbsp;***</li>
+        <li><code>arguments</code> &nbsp;***</li>
+        <li><code>null</code> &nbsp;****</li>
+        <li><code>undefined</code> &nbsp;****</li>
+        <li><code>true</code> &nbsp;****</li>
+        <li><code>false</code> &nbsp;****</li>
+        <li><code>Infinity</code> &nbsp;****</li>
+        <li><code>NaN</code> &nbsp;****</li>
+      </ul>
+
+      <p class="note">
+        * <code>if</code> is called an operator sometimes out of tradition.
+      </p>
+
+      <p class="note">
+        ** <code>in</code>, <code>new</code>, <code>delete</code>, <code>typeof</code>, <code>instanceof</code>, <code>yield</code> and <code>await</code> are also considered operators by some as they have specific precedence rules. Although syntax highligters color them as keywords more often.
+      </p>
+
+      <p class="note">
+        *** <code>this</code>, <code>constructor</code>, <code>super</code>, <code>arguments</code>, <code>null</code>, <code>undefined</code>, <code>true</code>, <code>false</code>, <code>Infinity</code> and <code>NaN</code> are also sometimes considered identifiers we're unable to assign using them, only read the corresponding values. <code>get</code>, <code>set</code>, <code>delete</code>, <code>catch</code>, <code>finally</code> on the other hand are actually used as property (method) identifiers quite often.
+      </p>
+
+      <p class="note">
+        **** <code>null</code>, <code>undefined</code>, <code>true</code>, <code>false</code>, <code>Infinity</code> and <code>NaN</code> can also be viewed as respective type literals used to "create" corresponding values.
+      </p>
+
+
+      <h3>identifiers</h3>
+
+      Identifiers are the names of any and all binding entities that are not keywords:
+
+      <ul class="columns">
+        <li>variables</li>
+        <li>constants</li>
+        <li>functions</li>
+        <li>parameters</li>
+        <li>properties</li>
+        <li>methods</li>
+        <li>classes</li>
+      </ul>
+
+      <p>Any identifier is a subject to valid identifier rules:</p>
+
+      <ul class="legend">
+        <li>should not match keywords *</li>
+        <li>should not start with a digit</li>
+        <li>should not contain spaces</li>
+        <li>should not contain operators or punctuators</li>
+        <li>should not contain special characters **</li>
+      </ul>
+
+      <p class="note">
+        * identifiers can not match reserved keywords, but they can match some non-reserved keywords. Please don't use those to name your bindings anyway.
+      </p>
+
+      <p class="note">
+        ** <code>$</code> and <code>_</code> are commonly used in identifiers. Non-English letters are also allowed, as well as many other characters. But again, please don't use them in your binding names. Follow the conventions.
+      </p>
+
+
+      <h3>operators</h3>
+
+      <p>Operators are the symbols that perform operations on operands. They are used to manipulate values, to compare them, to assign them, to call functions, and so on. Operators are also used to group expressions together, for example to create a function call.</p>
+
+      <ul class="columns">
+        <li><code>+</code></li>
+        <li><code>-</code></li>
+        <li><code>*</code></li>
+        <li><code>/</code></li>
+        <li><code>%</code></li>
+        <li><code>**</code></li>
+        <li><code>=</code></li>
+        <li><code>==</code></li>
+        <li><code>!=</code></li>
+        <li><code>===</code></li>
+        <li><code>!==</code></li>
+        <li><code>&lt;</code></li>
+        <li><code>&lt;=</code></li>
+        <li><code>&gt;</code></li>
+        <li><code>&gt;=</code></li>
+        <li><code>++</code></li>
+        <li><code>--</code></li>
+        <li><code>!</code></li>
+        <li><code>&&</code></li>
+        <li><code>||</code></li>
+        <li><code>??</code></li>
+        <li><code>? :</code></li>
+        <li><code>+=</code></li>
+        <li><code>-=</code></li>
+        <li><code>*=</code></li>
+        <li><code>/=</code></li>
+        <li><code>%=</code></li>
+        <li><code>**=</code></li>
+        <li><code>&&=</code></li>
+        <li><code>||=</code></li>
+        <li><code>??=</code></li>
+        <li><code>.</code></li>
+        <li><code>?.</code></li>
+        <li><code>[ ]</code></li>
+        <li><code>( )</code></li>
+        <li><code>...</code></li>
+        <li><code>,</code></li>
+        <li><code>&</code></li>
+        <li><code>|</code></li>
+        <li><code>^</code></li>
+        <li><code>~</code></li>
+        <li><code>&gt;&gt;</code></li>
+        <li><code>&lt;&lt;</code></li>
+        <li><code>&gt;&gt;&gt;</code></li>
+      </ul>
+
+      <p>MDN documentation puts operators in categories as such:</p>
+
+      <ul class="legend">
+        <li><code>arithmetic</code></li>
+        <li><code>assignment</code></li>
+        <li><code>increment/decrement</code></li>
+        <li><code>accessors</code></li>
+        <li><code>unary</code></li>
+        <li><code>relational</code></li>
+        <li><code>equality</code></li>
+        <li><code>logical</code></li>
+        <li><code>ternary</code></li>
+        <li><code>call</code></li>
+        <li><code>bitwise logical</code></li>
+        <li><code>bitwise shift</code></li>
+        <li><code>other...</code></li>
+      </ul>
+
+      <h3>literals</h3>
+
+      <p>
+        Literals are the code fragments that are supposed to be the values written literally in the source code. A literal is basically a command to the computer to create and return a value. There are no values in the code. No numbers, no strings or other types of values. The closest thing to a value in code is a corresponding literal.
+      </p>
+
+      <p>There are several kinds of single token literals in JavaScript:</p>
+
+      <ul class="legend">
+        <li><code>'lit'</code>, <code>"lit"</code>, <code>`lit`</code> - string literals</li>
+        <li><code>123</code>, <code>-4</code>, <code>0.56</code>, <code>4e6</code>, <code>2e-5</code>, <code>1_000_000</code> - number literals</li>
+        <li><code>0b10</code>, <code>0o777</code>, <code>0xFF</code>, - number literals in binary, octal, hexadecimal</li>
+        <li><code>NaN</code>, <code>Infinity</code> * - also produce number type values</li>
+        <li><code>true</code>, <code>false</code> * - boolean literals</li>
+        <li><code>null</code>, <code>undefined</code> * - singular values of monotypes</li>
+        <li><code>1234567890n</code> - big integer literal</li>
+      </ul>
+
+      <p class="note">
+        * <code>NaN</code>, <code>Infinity</code>, <code>true</code>, <code>false</code>, <code>null</code> and <code>undefined</code> although written with keywords and internally working as read-only identifiers are indeed used as literals producing the corresponding values.
+      </p>
+
+      <h3>punctuators</h3>
+
+      <p>
+        Punctuators (or punctuation) are the symbols that syntactically separate or group other tokens in a source code. They are required or recommended in certain constructions where they are used to clearly define the structure of the code. Punctuators are formal tokens and unlike operators, they do not perform any operations on operands.
+      </p>
+
+      <ul class="columns">
+        <li> <code>,</code> *</li>
+        <li> <code>;</code> </li>
+        <li> <code>:</code> </li>
+        <li> <code>( )</code> *</li>
+        <li> <code>[ ]</code> *</li>
+        <li> <code>{ }</code> </li>
+        <li> <code>${ }</code> </li>
+      </ul>
+
+      <p class="note">
+        * <code>,</code>, <code>( )</code>, <code>[ ]</code> and <code>{ }</code> would work as operators or literals in some positions and as punctuators in others, but don't worry the syntax is totally deterministic and makes it clear which is which.
+      </p>
+
+      <h3>comments</h3>
+
+      <p>Comments are written in the source code to explain the code or to temporarily disable some parts of it. They are ignored by the JavaScript engine and are not executed. Although some very specific comments can sometimes be interpreted by other utilities in the web developer's tooling, like editors, linters, transpilers, compilers, bundlers etc.</p>
+
+      <ul class="legend">
+        <li>
+          <code>// comment to the end of the line</code>
+        </li>
+
+        <li>
+          <code>/* partial inline comment */</code>
+        </li>
+
+        <li>
+          <code>
+            <pre>/*<br>  multiline<br>  comment<br>*/</pre>
+          </code>
+        </li>
+
+        <li>
+          <code>
+            <pre>/**<br> * JSDoc comment<br> *<br> * @param {type} identifier<br> * @returns {type}<br> * @throws {type}<br> * @example<br> *   example code<br> */</pre>
+          </code>
+        </li>
+      </ul>
+
+      <p class="note">
+        * JSDoc comments are recognized by TypeScript, code editors, IDEs and some other tools and can be quite handy to denote the parameter names, expected types, return values, and so on.
+      </p>
+    </section>
+
+    <section id="simple_expressions" class="main-section">
+      <header>
+        <h2>Simple Expressions</h2>
+      </header>
+
+      
+    </section>
+
+    <section id="compound_literal_expressions" class="main-section">
+      <header>
+        <h2>Compound Literal Expressions</h2>
+      </header>
+
+    </section>
+
+    <section id="operator_expressions" class="main-section">
+      <header>
+        <h2>Operator Expressions</h2>
+      </header>
+
+    </section>
+
+    <section id="nested_expressions" class="main-section">
+      <header>
+        <h2>Nested Expressions</h2>
+      </header>
+
+    </section>
+
+    <section id="statements" class="main-section">
+      <header>
+        <h2>Statements</h2>
+      </header>
+
+    </section>
+  </main>
+</body>
+
+</html>
