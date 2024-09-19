@@ -60,6 +60,11 @@ main {
     padding-left: 20%;
   }
 
+  h4 {
+    margin-top: 30px;
+    margin-bottom: 16px;
+  }
+
   .code-block {
     max-width: 560px;
     background-color: #f1f1f1;
@@ -74,6 +79,10 @@ main {
 
   pre {
     margin: 0;
+
+    .comment {
+      color: gray;
+    }
   }
 
   .legend>li::marker {

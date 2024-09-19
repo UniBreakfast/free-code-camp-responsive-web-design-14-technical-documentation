@@ -58,7 +58,9 @@
         <h2>Tokens</h2>
       </header>
 
-      <p>Tokens are the smallest building blocks of a programming language. Atomic units of code, like words and punctuation marks in human languages. You can further break them into letters, digits and other characters, of course, code is just text after all. But they will loose their meaning then, so the smallest meaningful units we consider are tokens.</p>
+      <p>
+        Tokens are the smallest building blocks of a programming language. Atomic units of code, like words and punctuation marks in human languages. You can further break them into letters, digits and other characters, of course, code is just text after all. But they will loose their meaning then, so the smallest meaningful units we consider are tokens.
+      </p>
 
       <p>Easy to remember mnemonic (memorization trick) for the six categories of tokens I suggest is below:</p>
 
@@ -143,10 +145,9 @@
         **** <code>null</code>, <code>undefined</code>, <code>true</code>, <code>false</code>, <code>Infinity</code> and <code>NaN</code> can also be viewed as respective type literals used to "create" corresponding values.
       </p>
 
-
       <h3>identifiers</h3>
 
-      Identifiers are the names of any and all binding entities that are not keywords:
+      <p>Identifiers are the names of any and all binding entities that are not keywords:</p>
 
       <ul class="columns">
         <li>variables</li>
@@ -176,10 +177,11 @@
         ** <code>$</code> and <code>_</code> are commonly used in identifiers. Non-English letters are also allowed, as well as many other characters. But again, please don't use them in your binding names. Follow the conventions.
       </p>
 
-
       <h3>operators</h3>
 
-      <p>Operators are the symbols that perform operations on operands. They are used to manipulate values, to compare them, to assign them, to call functions, and so on. Operators are also used to group expressions together, for example to create a function call.</p>
+      <p>
+        Operators are the symbols that perform operations on operands. They are used to manipulate values, to compare them, to assign them, to call functions, and so on. Operators are also used to group expressions together, for example to create a function call.
+      </p>
 
       <ul class="columns">
         <li><code>+</code></li>
@@ -290,7 +292,9 @@
 
       <h3>comments</h3>
 
-      <p>Comments are written in the source code to explain the code or to temporarily disable some parts of it. They are ignored by the JavaScript engine and are not executed. Although some very specific comments can sometimes be interpreted by other utilities in the web developer's tooling, like editors, linters, transpilers, compilers, bundlers etc.</p>
+      <p>
+        Comments are written in the source code to explain the code or to temporarily disable some parts of it. They are ignored by the JavaScript engine and are not executed. Although some very specific comments can sometimes be interpreted by other utilities in the web developer's tooling, like editors, linters, transpilers, compilers, bundlers etc.
+      </p>
 
       <ul class="legend">
         <li>
@@ -333,24 +337,24 @@
       <p>Simple expressions are the singular tokens that can be evaluated on their own and so make the simplest expressions. Simple expressions can be used as the operands of operators, as the arguments of function calls, and so on.</p>
 
       <p>Literal expression is basically a command to the computer to produce a value (create in memory and return it or the corresponding memory address to get the value).</p>
-      
-      <p>Number literals:</p>
-      
+
+      <h4>Number literals:</h4>
+
       <div class="code-block">
         <code>
           <pre>42<br>3.14<br>12e9<br>2e-5<br>1_000_000<br>0b10<br>0o777<br>0xFF<br>NaN<br>Infinity</pre>
         </code>
       </div>
 
-      <p>BigInt literals:</p>
+      <h4>BigInt literals:</h4>
 
       <div class="code-block">
         <code>
           <pre>1234567890n<br>-14n<br>99999999999999999999999999999999n</pre>
         </code>
       </div>
-      
-      <p>String literals:</p>
+
+      <h4>String literals:</h4>
 
       <div class="code-block">
         <code>
@@ -358,7 +362,7 @@
         </code>
       </div>
 
-      <p>Boolean literals:</p>
+      <h4>Boolean literals:</h4>
 
       <div class="code-block">
         <code>
@@ -366,15 +370,15 @@
         </code>
       </div>
 
-      <p>Null and undefined literals:</p>
+      <h4>Null and undefined literals:</h4>
 
       <div class="code-block">
         <code>
           <pre>null<br>undefined</pre>
         </code>
       </div>
-      
-      <p>Empty array and object literals:</p>
+
+      <h4>Empty array and object literals:</h4>
 
       <div class="code-block">
         <code>
@@ -382,18 +386,20 @@
         </code>
       </div>
 
-      <p>Regular expression (regex) literals: *</p>
+      <h4>Regular expression (regex) literals: *</h4>
 
       <div class="code-block">
         <code>
           <pre>/.*/<br>/^(ab+|c*)\d?[ef]$/gi</pre>
         </code>
       </div>
-      
+
       <p class="note">
         * regex literal is a single token as far as the JavaScript engine is concerned. But on a deeper level of regular expressions as a meta-language, it is a sequence of regex-tokens.
       </p>
-      
+
+      <h4>Identifier expressions:</h4>
+
       <p>Single identifiers are "read binding value" commands. Here are some example constant, variable, parameter, function or class names:</p>
 
       <div class="code-block">
@@ -424,19 +430,19 @@
         Compound literals are literal expressions that consist of more than one token. They are still used to create values of various types, positioned as operands of operators or arguments of function calls.
       </p>
 
-      <p>Template string literals:</p>
+      <h4>Template string literals:</h4>
 
       <div class="code-block">
         <code>
           <pre>`With interpolated a=${a} and b=${b}`<br>`include calculated values ${a + b}, ${mult(a, b)}`</pre>
         </code>
       </div>
-      
-      <p>Classic function literals: * **</p>
-      
+
+      <h4>Classic function literals: * ** ***</h4>
+
       <div class="code-block">
         <code>
-          <pre>function fn() {}<br>function fn(a, b) {}<br>function (a) {}<br>function Constructor(a, b) {}<br>function* generate() {}<br>async function doEventually() {}</pre>
+          <pre>function fn() {}<br>function fn(a, b) {}<br>function fn(a, b = c) {}<br>function fn(a, ...b)<br>function fn([a], {b}) {}<br>function (a, b) {}<br>function Constructor(a, b) {}<br>function* generate() {}<br>async function doEventually() {}</pre>
         </code>
       </div>
 
@@ -448,7 +454,11 @@
         ** any classic function literal can be named or anonymous, with or without parameters, with or without async keyword, with or without asterisk making it a generator - any combination of these can be used.
       </p>
 
-      <p>Arrow function literals: *</p>
+      <p class="note">
+        *** any parameter in any function literal (classic or arrow) can utilize any kind of destructuring of any depth, be with or without default value; last parameter can be rest parameter with a rest operator in front of it.
+      </p>
+
+      <h4>Arrow function literals: *</h4>
 
       <div class="code-block">
         <code>
@@ -459,25 +469,29 @@
       <p class="note">
         * in arrow function parentheses can be omitted if there is exactly one parameter, curly braces can be omitted if there is exactly one expression in the function body, and if curly braces are omitted the return value of that single expression is returned from the function.
       </p>
-      
-      <p>Array literals:</p>
+
+      <h4>Array literals: *</h4>
 
       <div class="code-block">
         <code>
-          <pre>[a]<br>[a, b, c, d, e]</pre>
-        </code>
-      </div>
-
-      <p>Object literals: * ** ***</p>
-
-      <div class="code-block">
-        <code>
-          <pre>{a: b, c: d}<br>{a, b}<br>{m(a) {}}<br>{async m() {}}<br>{*m() {}}<br>{get g() {}, set s(v) {}}</pre>
+          <pre>[a]<br>[a, b, c, d, e]<br>[...a, ...b, c]</pre>
         </code>
       </div>
 
       <p class="note">
-        * a property in an object literal can be written in shorthand form (without colon) if it has the same name as an existing binding in the same scope which will provide the value for that property.
+        * any array literal can be written with arbitrary number of expressions providing elements inside, with or without spread operator in front of any of them.
+      </p>
+
+      <h4>Object literals: * ** ***</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>{a: b, c: d}<br>{a, b}<br>{...a, ...b, c}<br>{m(a) {}}<br>{async m() {}}<br>{*m() {}}<br>{get g() {}, set s(v) {}}</pre>
+        </code>
+      </div>
+
+      <p class="note">
+        * a property in an object literal can be written in shorthand form (without colon) if it has the same name as an existing binding in the same scope which will provide the value for that property; if spread operator is used instead of adding one property with specified name all the properties from the object provided next to that spread operator will be added to the object created 
       </p>
 
       <p class="note">
@@ -488,7 +502,7 @@
         *** an object literal can be written with or without getters and/or setters.
       </p>
 
-      <p>Class literals: * ** ***</p>
+      <h4>Class literals: * ** ***</h4>
 
       <div class="code-block">
         <code>
@@ -514,6 +528,94 @@
         <h2>Operator Expressions</h2>
       </header>
 
+      <p>
+        Operator expressions are expressions that consist of an operator and one or more operands. They are used to perform operations on operands and return a value and/or produce a side effect. They can and usually are informally named accordingly to the operator used.
+      </p>
+
+      <p>Groups of expressions by operator category:</p>
+
+      <ul class="legend">
+        <li> <code>arithmetic</code> </li>
+        <li> <code>logical</code> </li>
+        <li> <code>relational</code> </li>
+        <li> <code>member access</code> </li>
+        <li> <code>call</code> </li>
+        <li> <code>assignment</code> </li>
+        <li> <code>bitwise</code> </li>
+        <li> <code>other...</code> </li>
+      </ul>
+
+      <h4>Arithmetic expressions:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>a + b <span class="comment"> // addition expression</span><br>a - b <span class="comment"> // subtraction expression</span><br>a * b <span class="comment"> // multiplication expression</span><br>a / b <span class="comment"> // division expression</span><br><br>a % b <span class="comment"> // remainder expression</span><br>a ** b <span class="comment"> // exponentiation expression</span></pre>
+        </code>
+      </div>
+
+      <h4>Logical expressions:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>!a <span class="comment"> // logical negation expression</span><br><br>a && b <span class="comment"> // value selection by logical conjunction expression</span><br>a || b <span class="comment"> // value selection by logical disjunction expression</span><br>a ?? b <span class="comment"> // conditional value selection (if empty) expression</span><br><br>a ? b : c <span class="comment"> // ternary conditional value selection expression</span></pre>
+        </code>
+      </div>
+
+      <h4>Relational expressions:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>a < b <span class="comment"> // strict comparison expression</span><br>a > b <span class="comment"> // strict comparison expression</span><br>a <= b <span class="comment"> // non-strict comparison expression</span><br>a <= b <span class="comment"> // non-strict comparison expression</span><br><br>a == b <span class="comment"> // equality expression with coercion to same type</span><br>a === b <span class="comment"> // strict equality expression</span><br>a != b <span class="comment"> // inequality expression with coercion to same type</span><br>a !== b <span class="comment"> // strict inequality expression</span></pre>
+        </code>
+      </div>
+
+      <h4>Member access expressions:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>a.b <span class="comment"> // property read expression</span><br>a?.b <span class="comment"> // conditional (non-emptiness) property read expression</span><br>a[b] <span class="comment"> // read property via key expression</span><br>a?.[b] <span class="comment"> // conditional (non-emptiness) indexed element read</span><br><br>delete a <span class="comment"> // global variable deletion expression</span><br>delete a.b <span class="comment"> // property deletion expression</span><br>delete a[b] <span class="comment"> // property deletion via key (index) expression</span><br><br>a in b <span class="comment"> // membership check expression</span><br><br>a instanceof A <span class="comment"> // inheritance check by class</span></pre>
+        </code>
+      </div>
+
+      <h4>Assignment expressions: *</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>a = b <span class="comment"> // assignment expression</span><br><br>a += b <span class="comment"> // specified increment expression</span><br>a -= b <span class="comment"> // specified decrement expression</span><br>a *= b <span class="comment"> // specified product reassignment expression</span><br>a /= b <span class="comment"> // specified division reassignment expression</span><br><br>a %= b <span class="comment"> // specified remainder reassignment expression</span><br>a **= b <span class="comment"> // specified exponentiation reassignment expression</span><br><br>a &&= b <span class="comment"> // logical conjunction reassignment expression</span><br>a ||= b <span class="comment"> // logical disjunction reassignment expression</span><br>a ??= b <span class="comment"> // conditional (if empty) reassignment expression</span><br><br>a &= b <span class="comment"> // bitwise AND reassignment expression</span><br>a |= b <span class="comment"> // bitwise OR reassignment expression</span><br>a ^= b <span class="comment"> // bitwise XOR reassignment expression</span><br><br>a >>= b <span class="comment"> // bit shift right reassignment expression</span><br>a <<= b <span class="comment"> // bit shift left reassignment expression</span><br>a >>>= b <span class="comment"> // bit shift right reassignment with sign drop</span><br><br>a.b = c <span class="comment"> // property assignment expression</span><br>a[b] = c <span class="comment"> // property assignment via key (index) expression</span><br><br>[a] = b <span class="comment"> // first element destructuring expression</span><br>[a, b] = c <span class="comment"> // iterable destructuring expression</span><br>[,,a] = b <span class="comment"> // iterable destructuring skipping first elements</span><br>[a,...b] = c <span class="comment"> // iterable destructuring with rest of<br>             // values collected in an array</span><br>{a} = b <span class="comment"> // single property destructuring expression</span><br>{a, b} = c <span class="comment"> // object destructuring expression</span><br>{a, ...b} = c <span class="comment"> // object destructuring with rest of<br>              // properties collected in an object</span><br>{a: b} = c <span class="comment"> // object destructuring with differently<br>           // named property/variable</span><br>[[a]] = b <span class="comment"> // deep iterable destructuring expression</span><br>[{a}] = b <span class="comment"> // deep object destructuring from an iterable</span><br>{a: [b]} = c <span class="comment"> // deep iterable destructuring from an object</span><br>{a: {b}} = c <span class="comment"> // deep object destructuring expression</span></pre>
+        </code>
+      </div>
+
+      <p class="note">
+        * any destructuring assignment expression can be written for arbitrary depth with arbitrary number of elements/properties being accessed in the left-hand side, with or without rest operator in front of the last one, with or without propety-to-variable name change.
+      </p>
+
+      <h4>Call expressions: *</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>a() <span class="comment"> // function call expression</span><br>a(b) <span class="comment"> // function call expression with single argument</span><br>a(b, c) <span class="comment"> // function call expression with multiple arguments</span><br>a(...b) <span class="comment"> // call expression with iterable arguments spread</span><br>a?.() <span class="comment"> // conditional (non-emptiness) call expression</span><br><br>a.b() <span class="comment"> // method call expression</span><br>a[b]() <span class="comment"> // method call via key expression</span><br><br>new C <span class="comment"> // object (class) instantiation expression</span><br>new C() <span class="comment"> // object (class) instantiation expression</span><br><br>super() <span class="comment"> // extended class instantiation expression</span><br><br>import(a) <span class="comment"> // module import expression</span></pre>
+        </code>
+      </div>
+
+      <p class="note">
+        * any call with parentheses syntactically can be without arguments, with one or more arguments, with or without spread operator in front of each argument.
+      </p>
+
+      <h4>Bitwise expressions:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>a &amp; b <span class="comment"> // bitwise AND expression</span><br>a | b <span class="comment"> // bitwise OR expression</span><br>a ^ b <span class="comment"> // bitwise XOR expression</span><br><br>~a <span class="comment"> // bitwise NOT expression</span><br><br>a &lt;&lt; b <span class="comment"> // bit shift left expression</span><br>a &gt;&gt; b <span class="comment"> // bit shift right expression</span><br>a &gt;&gt;&gt; b <span class="comment"> // bit shift right expression with sign drop</span></pre>
+        </code>
+      </div>
+
+      <h4>Other unary expressions:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>typeof a <span class="comment"> // type determination expression</span><br><br>+a <span class="comment"> // coercion to number expression</span><br>-a <span class="comment"> // unary negation expression</span><br><br>++a <span class="comment"> // pre-increment expression</span><br>--a <span class="comment"> // pre-decrement expression</span><br>a++ <span class="comment"> // post-increment expression</span><br>a-- <span class="comment"> // post-decrement expression</span><br><br>await p <span class="comment"> // await promise result expression</span><br><br>yield <span class="comment"> // generator yield expression</span><br>yield a <span class="comment"> // generator yield value expression</span></pre>
+        </code>
+      </div>
     </section>
 
     <section id="nested_expressions" class="main-section">
