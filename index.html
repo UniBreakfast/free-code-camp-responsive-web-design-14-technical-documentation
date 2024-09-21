@@ -491,7 +491,7 @@
       </div>
 
       <p class="note">
-        * a property in an object literal can be written in shorthand form (without colon) if it has the same name as an existing binding in the same scope which will provide the value for that property; if spread operator is used instead of adding one property with specified name all the properties from the object provided next to that spread operator will be added to the object created 
+        * a property in an object literal can be written in shorthand form (without colon) if it has the same name as an existing binding in the same scope which will provide the value for that property; if spread operator is used instead of adding one property with specified name all the properties from the object provided next to that spread operator will be added to the object created
       </p>
 
       <p class="note">
@@ -630,6 +630,103 @@
         <h2>Statements</h2>
       </header>
 
+      <p>
+        Statements are commands that perform some actions with side effects but do not return a value themselves. So, naturally, they can't be used instead of expressions as operands in bigger expressions.
+      </p>
+
+      <p>
+        Not all keywords are making statements but all statements are built around certain keywords. And those keywords are always used in that way.
+      </p>
+
+      <h3>Declaractions</h3>
+
+      <h4>Variable declaration statements:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>var a = b <span class="comment"> // variable declaration statement</span><br>const a = b <span class="comment"> // constant declaration statement</span><br>let a = b <span class="comment"> // block scope variable declaration statement</span></pre>
+        </code>
+      </div>
+      
+      <h4>Function declaration statements: *</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>function f() {} <span class="comment"> // function declaration statement</span><br>function f(a, b) {} <span class="comment"> // function statement with parameters</span><br>function f(a, b = c) {} <span class="comment"> // ...with a default parameter value</span><br>function* f() {} <span class="comment"> // generator function declaration statement</span><br>async function f() {} <span class="comment"> // asynchronous function declaration</span><br>function Constructor(a, b) {} <span class="comment"> // constructor declaration</span></pre>
+        </code>
+      </div>
+      
+      <p class="note">
+        * to be considered a function declaration statement and not a function expression, it should be at the beginning of a separate line and have a name.
+      </p>
+
+      <h4>Class declaration statements: *</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>class C {} <span class="comment"> // class declaration statement</span><br>class C extends B {} <span class="comment"> // class extension with a sub class</span><br><br>class C {<br>  p = a <span class="comment"> // own property initialization</span><br>  #pp = b <span class="comment"> // private property initializer</span><br>  constructor(a, b) {} <span class="comment"> // constructor itself</span><br>  m(a) {} <span class="comment"> // instance method</span><br>  static s(o) {} <span class="comment"> // static method</span><br>  get g() {} <span class="comment"> // getter</span><br>  set t(v) {} <span class="comment"> // setter</span><br>}<br><br>class C {<br>  async m() {} <span class="comment"> // async instance method</span><br>  static async s() {} <span class="comment"> // async static method</span><br>}<br><br>class C {<br>  *m() {} <span class="comment"> // instance generator method</span><br>  static *s() {} <span class="comment"> // static generator method</span><br>}</pre>
+        </code>
+      </div>
+
+      <p class="note">
+        * to be considered a class declaration statement and not a class expression, it should be at the beginning of a separate line and have a name.
+      </p>
+
+      <h3>Flow control</h3>
+
+      <h4>Conditional if statements:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>if (a) {} <span class="comment"> // conditional block statement</span><br><br>if (a) {<br>} else {<br>} <span class="comment"> // if/else block statement with unmet condition block</span><br><br>if (a) {<br>} else if (b) {<br>} else if (c) {<br>} else {<br>} <span class="comment"> // multiconditional if-branching statement</span><br><br>if (a) b <span class="comment"> // conditional expression statement</span><br><br>if (a) b<br>else if (c) d<br>else d <span class="comment"> // multiconditional branching expressions statement</span>
+        </code>
+      </div>
+
+      <h4>Conditional switch statements: *</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>switch (a) {} <span class="comment"> // switch statement</span><br><br>switch (a) {<br>  case b: expr1<br>  case d: expr2  <br>  default: expr3<br>} <span class="comment"> // switch statement with default branch</span><br><br>switch (a) {<br>  case b:<br>    statement1<br>  case c:<br>    statement2<br>    break<br>  case d:<br>    statement3<br>    statement4<br>    break<br>  default:<br>    statement5<br>} <span class="comment"> // switch statement with multiple branches</span></pre>
+        </code>
+      </div>
+
+      <p class="note">
+        * switch statement can be written with any number of case equality (strict) entry points, with one default entry point or without any entry points at all (pointless). After each entry point there can be any number of commands (statements or expressions) to be executed. Withot break statement (which is optional) commands following the next entry point will be executed too.
+      </p>
+
+      <h3>Loops</h3>
+
+      <h4>While statements:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>while (a) {} <span class="comment"> // while statement</span><br><br>while (a) {<br>  statement1<br>  statement2<br>  statement3<br>} <span class="comment"> // while statement with multiple statements</span><br><br>do {} while (a) <span class="comment"> // do-while statement</span><br><br>do {<br>  statement1<br>  statement2<br>  statement3<br>} while (a) <span class="comment"> // do-while statement with multiple statements</span></pre>
+        </code>
+      </div>
+
+      <h4>For statements: *</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>for (a; b; c) {} <span class="comment"> // classic for loop</span><br><br>for (let a of b) {} <span class="comment"> // for-of loop</span><br><br>for (let a in b) {} <span class="comment"> // for-in loop</span><br><br>for (let a = b; a < c; a++) {} <span class="comment"> // for loop with initialization, condition and increment</span><br><br>for ( ; ; ) {} <span class="comment"> // infinite loop</span><br><br>for ( ; ; ) {<br>  statement1<br>  statement2<br>  statement3<br>} <span class="comment"> // infinite loop with multiple statements</span></pre>
+          
+
+
+      for (a; b; c) {}; for ( ; ; ) {}; for ( ; ; ); // classic for statements
+      for (let a of b) {}; for (a of b) {} // for-of statements
+      for (let a in b) {}; for (a in b) {} // for-in statements
+      break; // break statement (only allowed in switch, for, while, do-while)
+      continue; // continue statement (only allowed in for, while, do-while)
+      return; // return statement (only allowed in function)
+      throw a; // throw statement (only allowed in function)
+      try {} catch (a) {}; try {} catch {}; try {} finally {}; try {} catch {} finally {} // try-catch-finally statements
+      import a from "b"; import * as a from "b"; import "b"; // import statements
+      import {a} from "b"; import {a as b} from "b"; // partial (named) import statement (without and with renaming)
+      export default a; // default export statements
+      export {a}; export {a as b}; // named export statement (without and with renaming)
+      export const a = b; export let a = b; export function f() {}; // export statement with declarations
+      export * from "b"; // export all from module
+      export {a} from "b"; export {a as b} from "b"; // partial (named) export statement (without and with renaming)
     </section>
   </main>
 </body>
