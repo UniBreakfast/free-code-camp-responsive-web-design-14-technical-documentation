@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -638,6 +639,8 @@
         Not all keywords are making statements but all statements are built around certain keywords. And those keywords are always used in that way.
       </p>
 
+      <p>Anywhere in the code a statement can be used, an expression can be used instead (not to the same results of course). But not the other way around.</p>
+
       <h3>Declaractions</h3>
 
       <h4>Variable declaration statements:</h4>
@@ -696,39 +699,71 @@
 
       <h3>Loops</h3>
 
-      <h4>While statements:</h4>
+      <h4>While loop statements:</h4>
 
       <div class="code-block">
         <code>
-          <pre>while (a) {} <span class="comment"> // while statement</span><br><br>while (a) {<br>  statement1<br>  statement2<br>  statement3<br>} <span class="comment"> // while statement with multiple statements</span><br><br>do {} while (a) <span class="comment"> // do-while statement</span><br><br>do {<br>  statement1<br>  statement2<br>  statement3<br>} while (a) <span class="comment"> // do-while statement with multiple statements</span></pre>
+          <pre>while (a) {} <span class="comment"> // while statement</span><br><br>while (condition) {<br>  statement1<br>  statement2<br>  statement3<br>} <span class="comment"> // while statement with multiple statements</span><br><br>do {} while (a) <span class="comment"> // do-while statement</span><br><br>do {<br>  statement1<br>  statement2<br>  statement3<br>} while (condition) <span class="comment"> // do-while with multiple statements</span></pre>
         </code>
       </div>
 
-      <h4>For statements: *</h4>
+      <h4>For loop statements: *</h4>
 
       <div class="code-block">
         <code>
-          <pre>for (a; b; c) {} <span class="comment"> // classic for loop</span><br><br>for (let a of b) {} <span class="comment"> // for-of loop</span><br><br>for (let a in b) {} <span class="comment"> // for-in loop</span><br><br>for (let a = b; a < c; a++) {} <span class="comment"> // for loop with initialization, condition and increment</span><br><br>for ( ; ; ) {} <span class="comment"> // infinite loop</span><br><br>for ( ; ; ) {<br>  statement1<br>  statement2<br>  statement3<br>} <span class="comment"> // infinite loop with multiple statements</span></pre>
+          <pre>for (a; b; c) {} <span class="comment"> // classic for loop with three commands</span><br><br>for (let a of b) {} <span class="comment"> // for-of loop over iterable elements</span><br><br>for (let a in b) {} <span class="comment"> // for-in loop over object keys</span><br><br>for (let i = a; i < b; a += c) {<br>  statements<br>} <span class="comment"> // for loop with index, condition and stepping</span><br><br>for ( ; ; ) {} <span class="comment"> // infinite loop</span><br><br>for ( ; ; ) {<br>  statement1<br>  statement2<br>  statement3<br>} <span class="comment"> // infinite loop with multiple statements</span></pre>
+        </code>
+      </div>
           
+      <p class="note">
+        * for loop can be written with or without initialization, condition and stepping (classic for loop), with or without curly braces if only one expression follows, with or without multiple statements, and with or without continue and/or break statements inside the loop.
+      </p>
 
+      <p>
+        All five kinds of loops can be nested in any combination. All five kinds of loops can be infinite, which can lead to freezes of the runtime. Classic for loop and while loops would become infinite if the condition is always true and no break or throw statement is used inside the loop. If a loop is written inside a function it can also be broken with a yield or return statement. For-of loop can behave as an infinite loop if the iterable is getting filled with new values during the loop execution.
+      </p>
 
-      for (a; b; c) {}; for ( ; ; ) {}; for ( ; ; ); // classic for statements
-      for (let a of b) {}; for (a of b) {} // for-of statements
-      for (let a in b) {}; for (a in b) {} // for-in statements
-      break; // break statement (only allowed in switch, for, while, do-while)
-      continue; // continue statement (only allowed in for, while, do-while)
-      return; // return statement (only allowed in function)
-      throw a; // throw statement (only allowed in function)
-      try {} catch (a) {}; try {} catch {}; try {} finally {}; try {} catch {} finally {} // try-catch-finally statements
-      import a from "b"; import * as a from "b"; import "b"; // import statements
-      import {a} from "b"; import {a as b} from "b"; // partial (named) import statement (without and with renaming)
-      export default a; // default export statements
-      export {a}; export {a as b}; // named export statement (without and with renaming)
-      export const a = b; export let a = b; export function f() {}; // export statement with declarations
-      export * from "b"; // export all from module
-      export {a} from "b"; export {a as b} from "b"; // partial (named) export statement (without and with renaming)
+      <h3>Flow interruption</h3>
+
+      <h4>Interruptive control flow statements:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>break <span class="comment"> // break to exit a switch statement or a loop</span><br>continue <span class="comment"> // continue statement to skip to the<br>         // next iteration of a loop</span><br>return a <span class="comment"> // return statement to end function execution and<br>         // optionally return a value</span><br>throw a <span class="comment"> // throw statement to end function execution and<br>        // throw an exception</span></pre>
+        </code>
+      </div>
+
+      <h3>Exception handling</h3>
+
+      <h4>Try-catch-finally statements:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>try {} catch (a) {} <span class="comment"> // try-catch statement</span><br>try {} catch {} <span class="comment"> // try-catch statement with no exception type</span><br>try {} finally {} <span class="comment"> // try-finally statement</span><br>try {} catch {} finally {} <span class="comment"> // try-catch-finally statement</span></pre>
+        </code>
+      </div>
+
+      <h3>Modularity</h3>
+      
+      <h4>Import statements:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>import a from "b" <span class="comment"> // import single (default) binding</span><br>import * as a from "b" <span class="comment"> // import all from module as object</span><br>import "b" <span class="comment"> // execute module code only</span><br><br>import {a} from "b" <span class="comment"> // import one named binding from module</span><br>import {a, b, c} from "b" <span class="comment"> // import multiple bindings</span><br>import {a as b} from "b" <span class="comment"> // import with custom name</span></pre>
+        </code>
+      </div>
+
+      <h4>Export statements:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre>export default a <span class="comment"> // export default statement</span><br>export {a} <span class="comment"> // export single named binding statement</span><br>export {a, b, c} <span class="comment"> // export multiple named bindings statement</span><br>export {a as b} <span class="comment"> // export single binding with renaming</span><br><br>export const a = b <span class="comment"> // export constant statement</span><br>export let a = b <span class="comment"> // export variable statement</span><br>export function f() {} <span class="comment"> // export function statement</span><br>export class C {} <span class="comment"> // export class statement</span><br><br>export * from "b" <span class="comment"> // export all from module statement</span><br>export {a} from "b" <span class="comment"> // transit export named binding</span><br>export {a as b} from "b" <span class="comment"> // transit export with renaming</span></pre>
+        </code>
+      </div>
     </section>
   </main>
 </body>
+
+<!-- TODO: for await, comments in expressions, nested expressions -->
 
 </html>
