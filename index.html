@@ -623,6 +623,64 @@
         <h2>Nested Expressions</h2>
       </header>
 
+      <p>
+        One of the most powerful features of expressions is that they can be nested. This means that an expression can contain other expressions within it. Almost anywhere an expression is expected (like an operand for an operator, an argument for a function call, an element in an array, or a value in an object, a substitution for a template literal), you can place another, potentially complex, expression.
+      </p>
+
+      <p>
+        The inner expression is evaluated first, producing a value. This resulting value then becomes part of the outer expression's evaluation. This nesting capability allows us to build complex computations and data structures from simpler parts.
+      </p>
+
+      <p>
+        Parentheses <code>( )</code> are often crucial in nested expressions, especially with operators. They allow you to override the default operator precedence rules and explicitly control the order in which sub-expressions are evaluated.
+      </p>
+
+      <h4>Examples of Nested Expressions:</h4>
+
+      <div class="code-block">
+        <code>
+          <pre><span class="comment">// Operator expressions nested within one another</span>
+(a + b) * c <span class="comment"> // (a + b) is evaluated first</span>
+x > 0 && (y < 10 || z === null) <span class="comment"> // complex conditions</span>
+          
+<span class="comment">// Function call expressions used as operands or arguments</span>
+divide(x, 5) + 10 <span class="comment"> // quotient is used in addition</span>
+multiply(add(a, b), subtract(c, d)) <span class="comment"> // nested calls</span>
+console.log("Result: " + calculate(input)) <span class="comment"> // concatenated</span>
+                                          <span class="comment"> // argument</span>
+<span class="comment">// expressions nested within literal expressions</span>
+[x * 2, y + 5, 0] <span class="comment">// dynamically calculated array elements</span>
+config = {
+  id: generateId(),
+  value: currentValue + defaultValue,
+  isEnabled: checkStatus() || false
+} <span class="comment">// object property values are results of expressions</span>
+`User ${getName()} has ID ${user.id}.` <span class="comment">// template literal</span>
+                                <span class="comment">// interpolated substitutions</span>
+<span class="comment">// Member access chained and nested</span>
+data.users[0].profile.firstName <span class="comment">// chained property access</span>
+initial = getFullName(user).toUpperCase()[0] <span class="comment">// call result</span>
+                                           <span class="comment"> // used by index</span>
+<span class="comment">// Conditional (ternary) expressions with nested expressions</span>
+status = score > 60 ? processPass(score) : recordFail(score)
+label = value === null ? "N/A"  <span class="comment">// nested ternary expression</span>
+  : (value === 0 ? "Zero" : "Value: " + value) 
+          
+<span class="comment">// Complex combinations</span>
+filteredNames = data     <span class="comment">// assignment is the last operation</span>
+  .filter(     <span class="comment">// filter() uses predicate function expression</span>
+    item => item.value > threshold && isActive(item.id)
+  ).map(       <span class="comment">// map() uses mapper function expression</span>
+    item => item.name.toUpperCase()
+  ).join(", ") <span class="comment">// join() call on the result</span></pre>
+        </code>
+      </div>
+
+      <p class="note">
+        While nesting is powerful, excessively deep nesting can make code harder to read and debug. Sometimes it's better to break down a very complex nested expression into smaller steps using intermediate variables.
+      </p>
+
+      <p>Deep understanding of associativity and operator precedence rules is crucial for effective use of nested expressions. Operator precedence rules are defined in the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table" target="_blank">MDN documentation</a>.</p>
     </section>
 
     <section id="statements" class="main-section">
@@ -649,7 +707,7 @@
           <pre>var a = b <span class="comment"> // variable declaration statement</span><br>const a = b <span class="comment"> // constant declaration statement</span><br>let a = b <span class="comment"> // block scope variable declaration statement</span></pre>
         </code>
       </div>
-      
+
       <h4>Function declaration statements: *</h4>
 
       <div class="code-block">
@@ -657,7 +715,7 @@
           <pre>function f() {} <span class="comment"> // function declaration statement</span><br>function f(a, b) {} <span class="comment"> // function statement with parameters</span><br>function f(a, b = c) {} <span class="comment"> // ...with a default parameter value</span><br>function* f() {} <span class="comment"> // generator function declaration statement</span><br>async function f() {} <span class="comment"> // asynchronous function declaration</span><br>function Constructor(a, b) {} <span class="comment"> // constructor declaration</span></pre>
         </code>
       </div>
-      
+
       <p class="note">
         * to be considered a function declaration statement and not a function expression, it should be at the beginning of a separate line and have a name.
       </p>
@@ -713,7 +771,7 @@
           <pre>for (a; b; c) {} <span class="comment"> // classic for loop with three commands</span><br><br>for (let a of b) {} <span class="comment"> // for-of loop over iterable elements</span><br><br>for (let a in b) {} <span class="comment"> // for-in loop over object keys</span><br><br>for (let i = a; i < b; a += c) {<br>  statements<br>} <span class="comment"> // for loop with index, condition and stepping</span><br><br>for ( ; ; ) {} <span class="comment"> // infinite loop</span><br><br>for ( ; ; ) {<br>  statement1<br>  statement2<br>  statement3<br>} <span class="comment"> // infinite loop with multiple statements</span></pre>
         </code>
       </div>
-          
+
       <p class="note">
         * for loop can be written with or without initialization, condition and stepping (classic for loop), with or without curly braces if only one expression follows, with or without multiple statements, and with or without continue and/or break statements inside the loop.
       </p>
@@ -743,7 +801,7 @@
       </div>
 
       <h3>Modularity</h3>
-      
+
       <h4>Import statements:</h4>
 
       <div class="code-block">
@@ -763,6 +821,6 @@
   </main>
 </body>
 
-<!-- TODO: for await, comments in expressions, nested expressions -->
+
 
 </html>
